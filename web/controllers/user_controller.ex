@@ -10,4 +10,18 @@ defmodule Rumble.UserController do
     user = Repo.get(Rumble.User, id)
     render conn, "show.html", user: user
   end
+
+  def new(conn, _params) do
+    user = Rumble.User.changeset(%Rumble.User{})
+    render conn, "new.html", user: user
+  end
+
+  def create(conn, %{"user" => user_params}) do
+    changeset = Rumble.User.changeset(%Rumble.User{}, user_params)
+    user = Repo.insert!(changeset)
+
+    conn
+    |> put_flash(:info, "#{user.name} created!")
+    |> redirect(to: user_path(conn, :index))
+  end
 end
