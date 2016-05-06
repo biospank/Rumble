@@ -17,7 +17,7 @@ defmodule Rumble.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset = Rumble.User.changeset(%Rumble.User{}, user_params)
+    changeset = Rumble.User.registration_changeset(%Rumble.User{}, user_params)
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn
