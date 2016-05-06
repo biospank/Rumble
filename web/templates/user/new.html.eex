@@ -1,6 +1,6 @@
 <h1>New User</h1>
 
-<% if @user.action do %>
+<%= if @user.action do %>
   <div class="alert alert-danger">
     <p>Oops, something went wrong! please chack the errors below.</p>
   </div>
