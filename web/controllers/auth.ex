@@ -1,6 +1,6 @@
 defmodule Rumble.Auth do
   import Plug.Conn
-  import Comeonin.Brcypt, only: [checkpw: 2, dummy_checkpw: 0]
+  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   def init(opts) do
     Keyword.fetch! opts, :repo
